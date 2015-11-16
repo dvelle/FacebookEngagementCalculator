@@ -24,32 +24,77 @@
                 android:text="Likes:" />
 
             <TextView
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Comments:" />
 
             <TextView
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Shares:" />
         </TableRow>
 
         <TableRow>
 
             <EditText
-                android:hint="#Links"
-                android:layout_weight="1"/>
+                android:id="@+id/likes"
+                android:layout_weight="1"
+                android:hint="#Likes"
+                android:inputType="number" />
+
             <EditText
+                android:id="@+id/comments"
+                android:layout_weight="1"
                 android:hint="#Comments"
-                android:layout_weight="1"/>
+                android:inputType="number" />
+
             <EditText
+                android:id="@+id/shares"
+                android:layout_weight="1"
                 android:hint="#Shares"
-                android:layout_weight="1"/>
+                android:inputType="number" />
         </TableRow>
     </TableLayout>
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/byReach"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="By Reach"/>
+        <Button
+            android:id="@+id/byFans"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="By Fans"/>
+    </TableRow>
+    <EditText
+        android:id="@+id/reach"
+        android:inputType="number"
+        android:enabled="false"
+        android:hint="Post Reach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/page_likes"
+        android:hint="Page Likes"
+        android:inputType="number"
+        android:enabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Text"
+        android:inputType="none"
+        android:paddingTop="16dp"
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>
