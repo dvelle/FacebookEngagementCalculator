@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
         final EditText postReachNumber = (EditText) findViewById(R.id.reach);
         final EditText pageLikeNumber = (EditText) findViewById(R.id.page_likes);
 
+        final TextView postReachView = (TextView)findViewById(R.id.post_reach_view);
+        final TextView pageLikesView = (TextView)findViewById(R.id.page_likes_view);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 postResult.setText("");
                 postReachNumber.setText("");
                 pageLikeNumber.setText("");
+
+                postReachView.setVisibility(View.INVISIBLE);
+                pageLikesView.setVisibility(View.INVISIBLE);
 
                 postReachNumber.setEnabled(false);
                 pageLikeNumber.setEnabled(false);
@@ -60,9 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 stComments = postCommentsNumber.getText().toString();
                 stShare = postSharesNumber.getText().toString();
 
-                if (stLikes.isEmpty() || stComments.isEmpty() || stComments.isEmpty()) {
+                if (stLikes.isEmpty() || stComments.isEmpty() || stShare.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Enter all the three values", Toast.LENGTH_SHORT).show();
                 } else {
+                    pageLikesView.setVisibility(View.INVISIBLE);
+                    pageLikeNumber.setText("");
+                    pageLikeNumber.setEnabled(false);
+
+                    postReachView.setVisibility(View.VISIBLE);
                     postReachNumber.setEnabled(true);
                     postReachNumber.addTextChangedListener(new TextWatcher() {
                         @Override
@@ -96,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-//----------------------------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
         Button byFans = (Button) findViewById(R.id.byFans);
         byFans.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,9 +117,14 @@ public class MainActivity extends AppCompatActivity {
                 stComments = postCommentsNumber.getText().toString();
                 stShare = postSharesNumber.getText().toString();
 
-                if (stLikes.isEmpty() || stComments.isEmpty() || stComments.isEmpty()) {
+                if (stLikes.isEmpty() || stComments.isEmpty() || stShare.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Enter all the three values", Toast.LENGTH_SHORT).show();
                 } else {
+                    postReachView.setVisibility(View.INVISIBLE);
+                    postReachNumber.setText("");
+                    postReachNumber.setEnabled(false);
+
+                    pageLikesView.setVisibility(View.VISIBLE);
                     pageLikeNumber.setEnabled(true);
                     pageLikeNumber.addTextChangedListener(new TextWatcher() {
                         @Override
@@ -132,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
                                 likes = Double.parseDouble(stLikes);
                                 result = reachFans();
                                 postResult.setText("Reach by Fans: " + result);
-
                             }
                         }
                     });

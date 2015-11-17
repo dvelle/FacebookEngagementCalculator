@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
@@ -60,41 +59,62 @@
         </TableRow>
     </TableLayout>
 
+    <Button
+        android:id="@+id/byReach"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="By Reach" />
+
+    <Button
+        android:id="@+id/byFans"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="By Fans" />
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/byReach"
+
+        <TextView
+            android:id="@+id/post_reach_view"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:text="By Reach"/>
-        <Button
-            android:id="@+id/byFans"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:text="By Fans"/>
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:text="Post Reach:" />
+
+        <EditText
+            android:id="@+id/reach"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
     </TableRow>
-    <EditText
-        android:id="@+id/reach"
-        android:inputType="number"
-        android:enabled="false"
-        android:hint="Post Reach"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/page_likes"
-        android:hint="Page Likes"
-        android:inputType="number"
-        android:enabled="false"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/page_likes_view"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Page Likes:" />
+
+        <EditText
+            android:id="@+id/page_likes"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </TableRow>
     <TextView
-        android:text="Text"
-        android:inputType="none"
-        android:paddingTop="16dp"
         android:id="@+id/result"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:text="Result comes here."
+        android:textSize="20sp" />
 </LinearLayout>
