@@ -4,84 +4,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <TableRow>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_like"/>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_comment"/>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_share"/>
-        </TableRow>
-        <TableRow>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/image_dimen"
+                        android:layout_height="@dimen/image_dimen"
+                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:src="@drawable/ic_like" />
+
+                    <ImageView
+                        android:layout_width="@dimen/image_dimen"
+                        android:layout_height="@dimen/image_dimen"
+                        android:src="@drawable/ic_comment" />
+
+                    <ImageView
+                        android:layout_width="@dimen/image_dimen"
+                        android:layout_height="@dimen/image_dimen"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
+                        android:src="@drawable/ic_share" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/likes"
+                        android:layout_width="@dimen/box_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:background="@drawable/rect_box"
+                        android:gravity="center"
+                        android:hint="#Likes"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="@dimen/ip_size" />
+
+                    <EditText
+                        android:id="@+id/comments"
+                        android:layout_width="@dimen/box_width"
+                        android:background="@drawable/rect_box"
+                        android:gravity="center"
+                        android:hint="#Comments"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="@dimen/ip_size" />
+
+                    <EditText
+                        android:id="@+id/shares"
+                        android:layout_width="@dimen/box_width"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
+                        android:background="@drawable/rect_box"
+                        android:gravity="center"
+                        android:hint="#Shares"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="@dimen/ip_size" />
+                </TableRow>
+            </TableLayout>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/post_reach_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Page Likes"
+                    android:textColor="@color/primary_text_material_dark"
+                    android:textSize="@dimen/text_size" />
+
+                <Switch
+                    android:id="@+id/choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:shadowColor="@color/primary_text_material_dark" />
+
+                <TextView
+                    android:id="@+id/page_likes_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Post Reach"
+                    android:textColor="@color/primary_text_material_dark"
+                    android:textSize="@dimen/text_size" />
+
+            </TableRow>
 
             <EditText
-                android:id="@+id/likes"
-                android:layout_weight="1"
-                android:hint="#Likes"
-                android:inputType="number" />
+                android:id="@+id/second_value"
+                android:layout_width="@dimen/box_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/rect_box"
+                android:gravity="center"
+                android:hint="#Page Likes"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/ip_size" />
 
-            <EditText
-                android:id="@+id/comments"
-                android:layout_weight="1"
-                android:hint="#Comments"
-                android:inputType="number" />
+            <TextView
+                android:id="@+id/result_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/top_margin"
+                android:text="Engagement by Post:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/shares"
-                android:layout_weight="1"
-                android:hint="#Shares"
-                android:inputType="number" />
-        </TableRow>
-    </TableLayout>
-
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/post_reach_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Post Reach" />
-
-        <Switch
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:id="@+id/choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:thumbTint="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/page_likes_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Page Likes" />
-
-    </TableRow>
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="4dp"
-        android:text="Result comes here."
-        android:textSize="20sp" />
+            <TextView
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:id="@+id/result"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rect_box"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:text="1.6540654048 %"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
