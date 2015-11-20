@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
@@ -14,29 +15,19 @@
         android:layout_height="wrap_content">
 
         <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Likes:" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Comments:" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Shares:" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_like"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_comment"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_share"/>
         </TableRow>
-
         <TableRow>
 
             <EditText
@@ -59,19 +50,6 @@
         </TableRow>
     </TableLayout>
 
-    <Button
-        android:id="@+id/byReach"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="By Reach" />
-
-    <Button
-        android:id="@+id/byFans"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="By Fans" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -80,36 +58,25 @@
         <TextView
             android:id="@+id/post_reach_view"
             android:layout_width="wrap_content"
-            android:visibility="invisible"
             android:layout_height="wrap_content"
-            android:text="Post Reach:" />
+            android:text="Post Reach" />
 
-        <EditText
-            android:id="@+id/reach"
-            android:enabled="false"
-            android:layout_width="match_parent"
+        <Switch
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:id="@+id/choice"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:thumbTint="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/page_likes_view"
-            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Page Likes:" />
+            android:text="Page Likes" />
 
-        <EditText
-            android:id="@+id/page_likes"
-            android:enabled="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
     </TableRow>
+
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
