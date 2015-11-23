@@ -23,9 +23,8 @@ public class MainActivity extends AppCompatActivity {
         final EditText postLikesNumber = (EditText) findViewById(R.id.likes);
         final EditText postCommentsNumber = (EditText) findViewById(R.id.comments);
         final EditText postSharesNumber = (EditText) findViewById(R.id.shares);
-//        final TextView postResult = (TextView) findViewById(R.id.result);
-//        final EditText postReachNumber = (EditText) findViewById(R.id.reach);
-//        final EditText pageLikeNumber = (EditText) findViewById(R.id.page_likes);
+        final TextView postResult = (TextView) findViewById(R.id.result);
+
 
         final TextView postReachView = (TextView)findViewById(R.id.post_reach_view);
         final TextView pageLikesView = (TextView)findViewById(R.id.page_likes_view);
