@@ -59,7 +59,7 @@
                         android:layout_marginRight="@dimen/activity_vertical_margin"
                         android:background="@drawable/rect_box"
                         android:gravity="center"
-                        android:hint="#Likes"
+                        android:hint="#Post Likes"
                         android:inputType="number"
                         android:padding="8dp"
                         android:textColor="@android:color/white"

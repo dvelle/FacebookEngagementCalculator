@@ -13,6 +13,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+
 public class MainActivity extends AppCompatActivity {
 
     Double likes, comments, shares, postReach, pageLikes;
@@ -26,6 +28,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final MaterialFavoriteButton toolbarReset = new MaterialFavoriteButton.Builder(this)
+                .favorite(false)
+                .animateUnfavorite(true)
+                .animateFavorite(true)
+                .favoriteResource(R.drawable.ic_reset)
+                .notFavoriteResource(R.drawable.ic_reset)
+                .rotationDuration(400)
+                .rotationAngle(360)
+                .create();
+
+        toolbar.addView(toolbarReset);
+
+        toolbarReset.setOnFavoriteChangeListener(new MaterialFavoriteButton.OnFavoriteChangeListener() {
+            @Override
+            public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+                reset();
+                Toast.makeText(MainActivity.this, "Cleared!", Toast.LENGTH_SHORT).show();
+                toolbarReset.setFavorite(false,false);
+            }
+        });
+
 
         postLikesNumber = (EditText) findViewById(R.id.likes);
         postCommentsNumber = (EditText) findViewById(R.id.comments);
@@ -43,17 +67,7 @@ public class MainActivity extends AppCompatActivity {
         choice.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                stLikes = postLikesNumber.getText().toString();
-                stComments = postCommentsNumber.getText().toString();
-                stShare = postSharesNumber.getText().toString();
 
-                if (stLikes.isEmpty() || stComments.isEmpty() || stShare.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Enter all the three values", Toast.LENGTH_SHORT).show();
-                }else{
-                    shares = Double.parseDouble(stShare);
-                    comments = Double.parseDouble(stComments);
-                    likes = Double.parseDouble(stLikes);
-                }
                 if (isChecked){
                     choiceValue.setHint("Enter Post Reach");
                     choiceValue.addTextChangedListener(new TextWatcher() {
@@ -68,6 +82,17 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void afterTextChanged(Editable s) {
+                            stLikes = postLikesNumber.getText().toString();
+                            stComments = postCommentsNumber.getText().toString();
+                            stShare = postSharesNumber.getText().toString();
+
+                            if (stLikes.isEmpty() || stComments.isEmpty() || stShare.isEmpty()) {
+                                Toast.makeText(MainActivity.this, "Enter all the three values", Toast.LENGTH_SHORT).show();
+                            }else{
+                                shares = Double.parseDouble(stShare);
+                                comments = Double.parseDouble(stComments);
+                                likes = Double.parseDouble(stLikes);
+                            }
                             stPostReach=s.toString();
                                 if(!stPostReach.isEmpty()){
                                     resultCaption.setText("Engagement by Post:");
@@ -77,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                     });
                 }else{
+
                     choiceValue.setHint("Enter Page Likes");
                     choiceValue.addTextChangedListener(new TextWatcher() {
                         @Override
@@ -91,6 +117,17 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void afterTextChanged(Editable s) {
+                            stLikes = postLikesNumber.getText().toString();
+                            stComments = postCommentsNumber.getText().toString();
+                            stShare = postSharesNumber.getText().toString();
+
+                            if (stLikes.isEmpty() || stComments.isEmpty() || stShare.isEmpty()) {
+                                Toast.makeText(MainActivity.this, "Enter all the three values", Toast.LENGTH_SHORT).show();
+                            }else{
+                                shares = Double.parseDouble(stShare);
+                                comments = Double.parseDouble(stComments);
+                                likes = Double.parseDouble(stLikes);
+                            }
                             stPageLikes = s.toString();
                             if(!stPageLikes.isEmpty()){
                                 resultCaption.setText("Engagement by Fans:");
@@ -146,9 +183,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.reset) {
-            reset();
-        }
+//        if (id == R.id.reset) {
+//            reset();
+//        }
         return super.onOptionsItemSelected(item);
     }
 }
