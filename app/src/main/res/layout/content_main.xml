@@ -111,6 +111,8 @@
 
                 <Switch
                     android:id="@+id/choice"
+                    android:thumbTint="@color/off_color"
+                    android:trackTint="@color/colorPrimaryDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -164,6 +166,7 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:background="@drawable/rect_box"
                 android:textColor="@android:color/white"
                 android:textSize="30sp" />

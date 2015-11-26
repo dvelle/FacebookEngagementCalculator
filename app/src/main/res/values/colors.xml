@@ -6,4 +6,6 @@
     <color name="background_material_light">#1677bd</color>
     <color name="primary_text_material_light">#ffffff</color>
     <color name="primary_text_material_dark">#ffffff</color>
+    <color name="off_color">#FBD500</color>
+    <color name="on_color">#ff5252</color>
 </resources>
