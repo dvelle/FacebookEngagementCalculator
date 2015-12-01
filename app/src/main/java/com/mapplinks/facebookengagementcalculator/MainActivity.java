@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+import com.mixpanel.android.mpmetrics.MixpanelAPI;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        String projectToken = "8cc4301bbbdd8226284d10c9c3939fab";
+        final MixpanelAPI mixpanel = MixpanelAPI.getInstance(this, projectToken);
 
         final MaterialFavoriteButton toolbarReset = new MaterialFavoriteButton.Builder(this)
                 .favorite(false)
@@ -100,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                             if (!stPostReach.isEmpty()) {
                                 resultCaption.setText("Engagement by Post:");
                                 postReach = Double.parseDouble(stPostReach);
+                                mixpanel.track("Calculation");
                                 result.setText("" + reachEngagement() + " %");
                             }
                         }
@@ -137,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                             if (!stPageLikes.isEmpty()) {
                                 resultCaption.setText("Engagement by Fans:");
                                 pageLikes = Double.parseDouble(stPageLikes);
+                                mixpanel.track("Calculation");
                                 result.setText("" + reachFans() + " %");
                             } else {
                                 try {
